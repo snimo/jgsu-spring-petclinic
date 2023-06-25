@@ -46,7 +46,7 @@ class ValidatorTests {
 		LocaleContextHolder.setLocale(Locale.ENGLISH);
 		Person person = new Person();
 		person.setFirstName("");
-		person.setLastName("smith1");
+		person.setLastName("smith");
 
 		Validator validator = createValidator();
 		Set<ConstraintViolation<Person>> constraintViolations = validator.validate(person);
@@ -54,7 +54,7 @@ class ValidatorTests {
 		assertThat(constraintViolations).hasSize(1);
 		ConstraintViolation<Person> violation = constraintViolations.iterator().next();
 		assertThat(violation.getPropertyPath().toString()).isEqualTo("firstName");
-		assertThat(violation.getMessage()).isEqualTo("must not be empty");
+		assertThat(violation.getMessage()).isEqualTo("must not be empty1");
 	}
 
 }
